@@ -18,7 +18,12 @@ import java.util.stream.Collectors;
 public class GameService {
     Map<String, GameBoard> playerMap;
     List<FinishedGame> leaderboard;
-    List<String> values = new ArrayList<>(List.of("2", "3", "2", "3", "T", "3", "T", "3", "2", "3", "2", "3", "2", "3", "2", "1", "1", "3", "T", "3", "1", "1", "2", "3", "2"));
+    List<String> values = new ArrayList<>(
+            List.of("2", "3", "2", "3", "T",
+                    "3", "T", "3", "2", "3",
+                    "2", "3", "2", "3", "2",
+                    "1", "1", "3", "T", "3",
+                    "1", "1", "2", "3", "2"));
 
     @Autowired
     public GameService(Map<String, GameBoard> playerMap, List<FinishedGame> leaderboard) {
@@ -40,12 +45,13 @@ public class GameService {
         BoardUpdateDTO resultDTO = new BoardUpdateDTO();
         GameBoard gb = playerMap.get(dto.getPlayerName());
         dto.getCells().forEach(cell -> {
-            gb.getCells().get(cell-1).setValue(values.get(cell-1));
-            if (values.get(cell-1) == "T") {
+            int cellIndex = cell - 1;
+            gb.getCells().get(cellIndex).setValue(values.get(cellIndex));
+            if ("T".equals(values.get(cellIndex))) {
                 gb.incrementTreasureFound();
                 resultDTO.setTreasuresFound(gb.getTreasureFound());
             }
-            resultDTO.getCellValues().add(gb.getCells().get(cell-1));
+            resultDTO.getCellValues().add(gb.getCells().get(cellIndex));
         });
         gb.incrementRounds();
         resultDTO.setRound(gb.getRounds());

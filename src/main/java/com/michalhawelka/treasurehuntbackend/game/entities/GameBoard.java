@@ -15,10 +15,6 @@ public class GameBoard {
         return cells;
     }
 
-    public void setCells(List<GameCell> cells) {
-        this.cells = cells;
-    }
-
     public int getRounds() {
         return rounds;
     }
@@ -27,16 +23,8 @@ public class GameBoard {
         this.rounds += 1;
     }
 
-    public void setRounds(int rounds) {
-        this.rounds = rounds;
-    }
-
     public int getTreasureFound() {
         return treasureFound;
-    }
-
-    public void setTreasureFound(int treasureFound) {
-        this.treasureFound = treasureFound;
     }
 
     public void incrementTreasureFound() {

@@ -10,15 +10,7 @@ public class CheckCellsDTO {
         return cells;
     }
 
-    public void setCells(List<Integer> cells) {
-        this.cells = cells;
-    }
-
     public String getPlayerName() {
         return playerName;
-    }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
     }
 }
