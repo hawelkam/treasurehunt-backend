@@ -19,15 +19,17 @@ public class GameBoard {
         return rounds;
     }
 
-    public void incrementRounds() {
+    public int incrementRounds() {
         this.rounds += 1;
+        return this.rounds;
     }
 
     public int getTreasureFound() {
         return treasureFound;
     }
 
-    public void incrementTreasureFound() {
+    public int incrementTreasureFound() {
         this.treasureFound += 1;
+        return this.treasureFound;
     }
 }

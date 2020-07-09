@@ -48,15 +48,12 @@ public class GameService {
             int cellIndex = cell - 1;
             gb.getCells().get(cellIndex).setValue(values.get(cellIndex));
             if ("T".equals(values.get(cellIndex))) {
-                gb.incrementTreasureFound();
-                resultDTO.setTreasuresFound(gb.getTreasureFound());
+                resultDTO.setTreasuresFound(gb.incrementTreasureFound());
             }
             resultDTO.getCellValues().add(gb.getCells().get(cellIndex));
         });
-        gb.incrementRounds();
-        resultDTO.setRound(gb.getRounds());
+        resultDTO.setRound(gb.incrementRounds());
         if (gb.getTreasureFound() == 3) {
-            resultDTO.setFinished(true);
             handleFinishedGame(gb, dto.getPlayerName());
         }
         return resultDTO;

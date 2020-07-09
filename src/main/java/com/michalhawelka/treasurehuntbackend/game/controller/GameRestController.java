@@ -23,9 +23,7 @@ public class GameRestController {
 
     @GetMapping("/board/{player}")
     public ResponseEntity<GameBoard> getUsersById(@PathVariable(value = "player") String playerName) {
-        GameBoard gameBoard =
-                gameService.receiveBoard(playerName);
-        return ResponseEntity.ok().body(gameBoard);
+        return ResponseEntity.ok().body(gameService.receiveBoard(playerName));
     }
 
     @PostMapping("/check")

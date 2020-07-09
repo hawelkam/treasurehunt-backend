@@ -9,7 +9,6 @@ public class BoardUpdateDTO {
     List<GameCell> cellValues = new ArrayList<>();
     Integer treasuresFound;
     Integer round;
-    Boolean isFinished;
 
     public List<GameCell> getCellValues() {
         return cellValues;
@@ -25,14 +24,6 @@ public class BoardUpdateDTO {
 
     public void setTreasuresFound(Integer treasuresFound) {
         this.treasuresFound = treasuresFound;
-    }
-
-    public Boolean getFinished() {
-        return isFinished;
-    }
-
-    public void setFinished(Boolean finished) {
-        isFinished = finished;
     }
 
     public Integer getRound() {
